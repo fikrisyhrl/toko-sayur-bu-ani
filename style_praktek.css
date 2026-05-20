@@ -109,12 +109,44 @@ h2 {
 
 
 .hero {
-  min-height: calc(100vh - 60px); 
+  min-height: calc(100vh - 60px);
   padding: 60px 5%;
   display: flex;
   align-items: center;
   gap: 48px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* =================================
+   BACKGROUND DOODLE HERO
+================================= */
+
+.hero::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(30,58,138,0.45),
+      rgba(30,58,138,0.45)
+    ),
+    url("https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1600&auto=format&fit=crop");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.hero-teks {
+  background-color: rgba(255,255,255,0.75);
+  padding: 32px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
 }
 
 .hero-teks {
@@ -133,6 +165,9 @@ h2 {
   font-size: 1rem;
   color: #374151;
   margin-bottom: 28px;
+
+  position: relative;
+z-index: 2;
 }
 
 .hero-img {
@@ -142,8 +177,10 @@ h2 {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   object-fit: cover;
   aspect-ratio: 4/3;
-  background-color: #dcfce7; 
   min-height: 280px;
+
+  position: relative;
+  z-index: 2;
 }
 
 
@@ -200,7 +237,9 @@ td {
 
 .section-cara-pesan {
   padding: 72px 5%;
-  background-color: #f0fdf4;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(140, 170, 255, 0.375);
 }
 
 /* Reset numbering <ol> — kita buat styling sendiri */
@@ -213,13 +252,14 @@ td {
 }
 
 .langkah-list li {
-  background-color: #ffffff;
+  background-color: rgba(255,255,255,0.88);
   border-radius: 12px;
   padding: 24px 20px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   counter-increment: langkah-counter; 
   position: relative;
+  backdrop-filter: blur(6px);
 }
 
 /* Nomor bulat hijau di atas setiap langkah */
